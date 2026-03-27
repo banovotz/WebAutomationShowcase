@@ -1,0 +1,11 @@
+false
+Three of Hearts
+false
+Ace of Clubs
+false
+Two of Clubs
+false
+Nine of Spades
+false
+Ace of Diamonds
+[false, false, false, false, false]
