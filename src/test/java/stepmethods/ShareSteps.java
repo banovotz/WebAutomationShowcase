@@ -2,30 +2,19 @@ package stepmethods;
 
 import runtest.SetDriver;
 import runtest.Settings;
+import io.cucumber.java.Before;
+import io.cucumber.java.After;
 
+public class ShareSteps {
 
-import cucumber.api.java.Before;
-import cucumber.api.java.After;
-
-
-
-public class ShareSteps extends SetDriver{
-    @Before()
-    public void SetUp(){
-
-        initializeFirefoxDriver(false);
-        driver.navigate().to(Settings.CALCULATOR_HOME);
+    @Before
+    public void setUp() {
+        SetDriver.initializeChromeDriver(false);
+        SetDriver.driver.navigate().to(Settings.CALCULATOR_HOME);
     }
 
-
-
-  @After()
-    public void TearDown()  {
-
-
+    @After
+    public void tearDown() {
         SetDriver.quitDriver();
-
-
     }
-
 }

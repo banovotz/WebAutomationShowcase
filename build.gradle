@@ -2,36 +2,42 @@ plugins {
     id 'java'
 }
 
-group 'WebAutomationShowcase'
-version '1.0-SNAPSHOT'
+group = 'WebAutomationShowcase'
+version = '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/junit/junit
-    compile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
-    compile group: 'io.cucumber', name: 'cucumber-java', version: '3.0.2'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
-    compile group: 'io.cucumber', name: 'cucumber-junit', version: '3.0.2'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-core
-    compile group: 'io.cucumber', name: 'cucumber-core', version: '3.0.2'
-    // https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting
-    compile group: 'net.masterthought', name: 'cucumber-reporting', version: '3.20.0'
-    // https://mvnrepository.com/artifact/io.cucumber/gherkin
-    compile group: 'io.cucumber', name: 'gherkin', version: '5.1.0'
-    // https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer
-    compile group: 'info.cukes', name: 'cucumber-picocontainer', version: '1.2.5'
-    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
-    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.0.0'
+    // Cucumber BOM (Keeps all modules in sync)
+    implementation platform('io.cucumber:cucumber-bom:7.34.3')
+    implementation 'io.cucumber:cucumber-java'
+    implementation 'io.cucumber:cucumber-junit-platform-engine'
+    implementation 'io.cucumber:cucumber-picocontainer'
 
+    // JUnit 5 Platform (Modern replacement for JUnit 4)
+    testImplementation 'org.junit.platform:junit-platform-suite:1.11.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.14.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // Selenium 4 (Native Driver Manager included)
+    implementation 'org.seleniumhq.selenium:selenium-java:4.41.0'
 
+    // Reporting
+    implementation 'net.masterthought:cucumber-reporting:5.10.2'
+}
 
+test {
+    useJUnitPlatform() // CRITICAL: Enables discovery of @Suite and Cucumber tests
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
 }

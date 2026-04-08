@@ -1,34 +1,12 @@
 package runtest;
 
-import org.junit.runner.RunWith;
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import org.junit.platform.suite.api.*;
+import static io.cucumber.junit.platform.engine.Constants.*;
 
-
-
-@RunWith(Cucumber.class)
-@CucumberOptions(
-
-        features = "src/test/java/features/calculator.feature",
-
-        glue = {"stepmethods"},
-
-        plugin = {"pretty", "html:test-outout", "json:test-outout/report.json" },
-
-        monochrome = true,
-
-        junit = "--step-notifications",
-
-        dryRun = false
-
-        //tags = {"@ThirdScenario"}
-
-
-)
-
-
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "stepmethods")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report.html")
 public class RunTest {
-
-
-
 }
