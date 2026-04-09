@@ -21,8 +21,8 @@ public class CalculatorSteps {
         calculatorPO.clickEqualsButton();
     }
 
-    @Then("the result is three}")
-    public void the_result_is_three(Integer expected) {
-        Assertions.assertEquals(3, calculatorPO.readResults());
+    @Then("the result is three")
+    public void the_result_is_three() {
+        Assertions.assertEquals("3", calculatorPO.readResults());
     }
 }
