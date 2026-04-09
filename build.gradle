@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    // Cucumber BOM 
+    // Cucumber BOM
     implementation platform('io.cucumber:cucumber-bom:7.34.3')
     implementation 'io.cucumber:cucumber-java'
     implementation 'io.cucumber:cucumber-junit-platform-engine'

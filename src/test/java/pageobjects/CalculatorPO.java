@@ -13,13 +13,7 @@ public class CalculatorPO {
     private WebDriver driver;
     private WebDriverWait wait;
 
-   String numberElement;
-
-    private By equalsButton = By.id("buttonequals");
     private By resultArea = By.id("calculated-display");
-
-
-
 
     public CalculatorPO() {
         this.driver = SetDriver.driver;
@@ -40,11 +34,7 @@ public class CalculatorPO {
     }
 
 
-    public void clickEqualsButton() {
-        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(equalsButton));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-    }
-
+   
     public String readResults() {
         return wait.until(ExpectedConditions.presenceOfElementLocated(resultArea)).getAttribute("value");
     }

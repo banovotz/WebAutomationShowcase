@@ -18,7 +18,7 @@ public class CalculatorMultiplicationSteps {
         calculatorPO.enterValueIntoCalculator(int1);
         calculatorPO.enterOperationIntoCalculator("multiply");
         calculatorPO.enterValueIntoCalculator(int2);
-        calculatorPO.clickEqualsButton();
+        calculatorPO.enterOperationIntoCalculator("equals");
     }
 
     @Then("the multiplication result is {int}")

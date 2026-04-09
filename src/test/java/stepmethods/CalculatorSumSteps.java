@@ -18,7 +18,7 @@ public class CalculatorSumSteps {
         calculatorPO.enterValueIntoCalculator(int1);
         calculatorPO.enterOperationIntoCalculator("plus");
         calculatorPO.enterValueIntoCalculator(int2);
-        calculatorPO.clickEqualsButton();
+        calculatorPO.enterOperationIntoCalculator("equals");
     }
 
     @Then("the sum is {int}")

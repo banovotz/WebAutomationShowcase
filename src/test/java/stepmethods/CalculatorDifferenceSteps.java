@@ -18,7 +18,7 @@ public class CalculatorDifferenceSteps {
         calculatorPO.enterValueIntoCalculator(int1);
         calculatorPO.enterOperationIntoCalculator("minus");
         calculatorPO.enterValueIntoCalculator(int2);
-        calculatorPO.clickEqualsButton();
+        calculatorPO.enterOperationIntoCalculator("equals");
     }
 
     @Then("the difference is {int}")
