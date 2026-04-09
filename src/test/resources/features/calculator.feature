@@ -2,8 +2,12 @@
 
 Feature: calculator
 
-    Scenario: Calculating multiple sums
+    Scenario Outline: Calculating multiple sums
         Given I am on the calculator
-        When I add one and two
+        When I add <number1> and <number2>
         Then the result is three
+
+        Examples:
+            | number1 | number2 | expected |
+            | 1    | 2    | 3        |
 

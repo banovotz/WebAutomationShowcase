@@ -13,11 +13,11 @@ public class CalculatorSteps {
         Assertions.assertEquals("Button Calculator UI Testing App | Test Pages", calculatorPO.pageTitle());
     }
 
-    @When("I add one and two")
-    public void i_add_one_and_two() {
-        calculatorPO.enterFirstAdder();
+    @When("I add {int} and {int}")
+    public void i_add_and(Integer int1, Integer int2) {
+        calculatorPO.enterValueIntoCalculator(int1);
         calculatorPO.clickPlusButton();
-        calculatorPO.enterSecondAdder();
+        calculatorPO.enterValueIntoCalculator(int2);
         calculatorPO.clickEqualsButton();
     }
 
