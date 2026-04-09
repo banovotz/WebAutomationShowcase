@@ -12,7 +12,7 @@ import runtest.SetDriver;
 public class CalculatorPO {
     private WebDriver driver;
     private WebDriverWait wait;
-    // Locators (Example IDs - update to match your actual app)
+   
     private By firstAdder = By.id("button01");
     private By secondAdder = By.id("button02");
     private By plusButton= By.id("buttonplus");
