@@ -32,3 +32,15 @@ Feature: calculator
             | number1 | number2 | expected | operate    |
             | 3       | 2       | 6        | multiply   |
             | 45      | 33      | 1485     | multiply   |
+
+
+    Scenario Outline: Adding to and reading from memory
+        Given I am on the calculator to <operate>
+        When I add <number1> to memory
+        And I enter some number such as <number2>
+        Then the number <expected> is in memory
+
+        Examples:
+            | number1 | number2 | expected | operate    |
+            | 3       | 2       | 3        | memoryplus |
+            | 45      | 33      | 45       | memoryplus |
