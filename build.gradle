@@ -16,18 +16,18 @@ repositories {
 }
 
 dependencies {
-    // Cucumber BOM (Keeps all modules in sync)
+    // Cucumber BOM 
     implementation platform('io.cucumber:cucumber-bom:7.34.3')
     implementation 'io.cucumber:cucumber-java'
     implementation 'io.cucumber:cucumber-junit-platform-engine'
     implementation 'io.cucumber:cucumber-picocontainer'
 
-    // JUnit 5 Platform (Modern replacement for JUnit 4)
+    // JUnit 5
     testImplementation 'org.junit.platform:junit-platform-suite:1.11.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.14.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    // Selenium 4 (Native Driver Manager included)
+    // Selenium 4
     implementation 'org.seleniumhq.selenium:selenium-java:4.41.0'
 
     // Reporting
