@@ -2,8 +2,6 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
@@ -12,7 +10,7 @@ import runtest.SetDriver;
 public class CalculatorPO {
     private WebDriver driver;
     private WebDriverWait wait;
-   
+
     private By firstAdder = By.id("button01");
     private By secondAdder = By.id("button02");
     private By plusButton= By.id("buttonplus");
@@ -25,7 +23,7 @@ public class CalculatorPO {
     }
 
     public void enterFirstAdder() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(firstAdder));
+        wait.until(ExpectedConditions.elementToBeClickable(firstAdder)).click();
     }
 
     public void clickPlusButton() {
@@ -33,7 +31,7 @@ public class CalculatorPO {
     }
 
     public void enterSecondAdder() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(secondAdder));
+        wait.until(ExpectedConditions.elementToBeClickable(secondAdder)).click();
     }
 
     public void clickEqualsButton() {
@@ -46,7 +44,6 @@ public class CalculatorPO {
 
     public String pageTitle() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        // This waits until the title is actually populated
         wait.until(ExpectedConditions.not(ExpectedConditions.titleIs("")));
         return driver.getTitle();
     }
