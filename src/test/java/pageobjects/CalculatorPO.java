@@ -29,17 +29,17 @@ public class CalculatorPO {
 
     public void enterValueIntoCalculator(int value) {
         String valueStr = String.valueOf(value);
-
         // Loop through each digit in the number and click the corresponding button
         for (char digit : valueStr.toCharArray()) {
             wait.until(ExpectedConditions.elementToBeClickable(By.id("button0" + digit))).click();
         }
     }
 
+    public void enterOperationIntoCalculator(String operation) {
+        String valueStr = String.valueOf(operation);
+        // Insert operation and click the corresponding button
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("button" + operation))).click();
 
-
-    public void clickPlusButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(plusButton)).click();
     }
 
 
