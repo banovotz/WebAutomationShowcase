@@ -21,3 +21,14 @@ Feature: calculator
             | number1 | number2 | expected | operate |
             | 3       | 2       | 1        | minus   |
             | 45      | 33      | 12       | minus   |
+
+
+    Scenario Outline: Calculating multiple multiplications
+        Given I am on the calculator to <operate>
+        When I multiply <number1> and <number2>
+        Then the multiplication result is <expected>
+
+        Examples:
+            | number1 | number2 | expected | operate    |
+            | 3       | 2       | 6        | multiply   |
+            | 45      | 33      | 1485     | multiply   |

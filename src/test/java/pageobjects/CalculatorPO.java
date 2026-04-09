@@ -15,7 +15,6 @@ public class CalculatorPO {
 
    String numberElement;
 
-    private By plusButton= By.id("buttonplus");
     private By equalsButton = By.id("buttonequals");
     private By resultArea = By.id("calculated-display");
 
@@ -36,10 +35,8 @@ public class CalculatorPO {
     }
 
     public void enterOperationIntoCalculator(String operation) {
-        String valueStr = String.valueOf(operation);
-        // Insert operation and click the corresponding button
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("button" + operation))).click();
-
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("button" + operation)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
 
