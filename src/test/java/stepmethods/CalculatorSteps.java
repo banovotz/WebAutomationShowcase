@@ -2,6 +2,7 @@ package stepmethods;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.*;
+import io.cucumber.java.sl.In;
 import org.junit.jupiter.api.Assertions;
 import pageobjects.CalculatorPO;
 
@@ -21,8 +22,8 @@ public class CalculatorSteps {
         calculatorPO.clickEqualsButton();
     }
 
-    @Then("the result is three")
-    public void the_result_is_three() {
-        Assertions.assertEquals("3", calculatorPO.readResults());
+    @Then("the result is {int}")
+    public void the_result_is(Integer int3) {
+        Assertions.assertEquals(int3.toString(), calculatorPO.readResults());
     }
 }
