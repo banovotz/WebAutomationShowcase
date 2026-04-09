@@ -23,6 +23,6 @@ public class CalculatorSteps {
 
     @Then("the result is three}")
     public void the_result_is_three(Integer expected) {
-        Assertions.assertEquals(String.valueOf(expected), calculatorPO.readResults());
+        Assertions.assertEquals(3, calculatorPO.readResults());
     }
 }
