@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import runtest.SetDriver;
+import static java.lang.Character.isDigit;
 
 public class CalculatorPO {
     private WebDriver driver;
@@ -25,6 +26,22 @@ public class CalculatorPO {
         // Loop through each digit in the number and click the corresponding button
         for (char digit : valueStr.toCharArray()) {
             wait.until(ExpectedConditions.elementToBeClickable(By.id("button0" + digit))).click();
+             }
+        }
+
+
+    public void enterDoubleValueIntoCalculator(Double value) {
+        String valueStr = String.valueOf(value);
+        // Loop through each digit in the number and click the corresponding button
+        for (char digit : valueStr.toCharArray()) {
+            if (Character.isDigit(digit)) {
+                WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("button0" + digit)));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+            } else {
+                WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("buttondot")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+            }
         }
     }
 

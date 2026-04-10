@@ -12,10 +12,21 @@ Feature: calculator
             | 1       | 2       | 3        |  sum    |
             | 12      | 33      | 45       |  sum    |
 
+    Scenario Outline: Calculating multiple sums of decimal numbers
+        Given I am on the calculator to <operate>
+        When I add decimal number <number1> and <number2>
+        Then the sum of decimal numbers is <expected>
+
+        Examples:
+            | number1 | number2 | expected | operate                 |
+            | 6.9     | 3.9     | 10.8     |  sum decimal numbers    |
+            | 0.9     | 0.8     | 1.7      |  sum decimal numbers    |
+
     Scenario Outline: Calculating multiple differences
         Given I am on the calculator to <operate>
         When I substract <number1> and <number2>
         Then the difference is <expected>
+
 
         Examples:
             | number1 | number2 | expected | operate |
