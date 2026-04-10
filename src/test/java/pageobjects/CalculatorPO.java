@@ -34,7 +34,7 @@ public class CalculatorPO {
     }
 
 
-   
+
     public String readResults() {
         return wait.until(ExpectedConditions.presenceOfElementLocated(resultArea)).getAttribute("value");
     }

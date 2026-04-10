@@ -1,6 +1,5 @@
 package stepmethods;
 
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
 import pageobjects.CalculatorPO;
